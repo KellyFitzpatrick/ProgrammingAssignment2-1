@@ -1,14 +1,26 @@
 ## R code for Inverse of a Matrix
 ## The version was written by Kelly Fitzpatrick 
 ## The overall goal of this script is to take the inverse of an invertible square matrix
-## Write a short comment describing this function
+## The below function makeCahseMatrix is creating a cache matrix for an invertable square matrix 
+##the below function uses the R function solve to find the inverse
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  m <- NULL
+  set <- function(y) {
+    x <<- y
+    m <<- NULL
+  }
+  get <- function() x
+  setsolve <- function(solve) m <<- solve
+  getsolve <- function() m
+  list(set = set, get = get,
+       setsolve = setsolve,
+       getsolve = getsolve)
 }
 
 
-## Write a short comment describing this function
+
+## the function below will cache the matrix and return the inverse
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
